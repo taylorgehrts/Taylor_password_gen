@@ -7,9 +7,15 @@ var specialChars = ['!', '@', '#', '$', '%', '^', '&', '*', '()'];
 
 //main funtion//
 function generatePassword() {
-console.log ("this is where password will live")
-}
+//prompt for password length + alert for invalid response//
+var passwordLength = prompt("what length would you like your password to be?", "enter a number between 8-20");
 
+if (passwordLength < 8 || passwordLength > 128) {
+  alert("this is not a valid response please try again");
+  //restart function//
+  return generatePassword();
+}
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
