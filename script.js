@@ -7,15 +7,50 @@ var specialChars = ['!', '@', '#', '$', '%', '^', '&', '*', '()'];
 
 //main funtion//
 function generatePassword() {
-//prompt for password length + alert for invalid response//
-var passwordLength = prompt("what length would you like your password to be?", "enter a number between 8-20");
+  //prompt for password length + alert for invalid response//
+  var passwordLength = prompt("what length would you like your password to be?", "enter a number between 8-128");
 
-if (passwordLength < 8 || passwordLength > 128) {
-  alert("this is not a valid response please try again");
-  //restart function//
-  return generatePassword();
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("this is not a valid response please try again");
+    //restart function//
+    return generatePassword();
+  }
+  //confirm character choices//
+  var lowCase = confirm("would you like to include lowercase letters?", "choose ok for yes and cancel for no");
+  if (lowCase) {
+    alert("you have chose to include lower case letters");
+  }
+  else alert("you have chose not to include lower case letters");
+
+  var upCase = confirm("would you like to include uppercase letters?", "choose ok for yes and cancel for no");
+  if (upCase) {
+    alert("you have chose to include upper case letters");
+  }
+  else alert("you have chose not to include upper case letters");
+
+  var spChar = confirm("would you like to include special characters?", "choose ok for yes and cancel for no");
+  if (spChar) {
+    alert("you have chose to include special characters");
+  }
+  else alert("you have chose not to include special charaters");
+
+  var numb = confirm("would you like to include numbers?", "choose ok for yes and cancel for no");
+  if (numb) {
+    alert("you have chose to include numbers");
+  }
+  else alert("you have chose not to include numbers");
+
+  //alert if no character types are selected//
+  if (!lowCase && !upCase && !spChar && !numb) {
+    alert("you must include at least 1 character type. Please start over")
+    //restart function//
+    return generatePassword();
+  }
+ 
+
 }
-}
+
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
