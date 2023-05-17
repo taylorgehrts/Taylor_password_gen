@@ -16,25 +16,25 @@ function generatePassword() {
     return generatePassword();
   }
   //confirm character choices//
-  var lowCase = confirm("would you like to include lowercase letters?", "choose ok for yes and cancel for no");
+  var lowCase = confirm("would you like to include lowercase letters? choose ok for yes and cancel for no");
   if (lowCase) {
     alert("you have chose to include lower case letters");
   }
   else alert("you have chose not to include lower case letters");
 
-  var upCase = confirm("would you like to include uppercase letters?", "choose ok for yes and cancel for no");
+  var upCase = confirm("would you like to include uppercase letters? choose ok for yes and cancel for no");
   if (upCase) {
     alert("you have chose to include upper case letters");
   }
   else alert("you have chose not to include upper case letters");
 
-  var spChar = confirm("would you like to include special characters?", "choose ok for yes and cancel for no");
+  var spChar = confirm("would you like to include special characters? choose ok for yes and cancel for no");
   if (spChar) {
     alert("you have chose to include special characters");
   }
   else alert("you have chose not to include special charaters");
 
-  var numb = confirm("would you like to include numbers?", "choose ok for yes and cancel for no");
+  var numb = confirm("would you like to include numbers? choose ok for yes and cancel for no");
   if (numb) {
     alert("you have chose to include numbers");
   }
@@ -46,7 +46,31 @@ function generatePassword() {
     //restart function//
     return generatePassword();
   }
- 
+  //build array based on character selections//
+  var passcont = [];
+  if (lowCase) {
+    passcont = passcont.concat(lowercaseLetters);
+  }
+  if (upCase) {
+    passcont = passcont.concat(uppercaseLetters);
+  }
+  if (spChar) {
+    passcont = passcont.concat(specialChars);
+  }
+  if (numb) {
+    passcont = passcont.concat(numbers);
+  }
+
+  //empty string for password to populate//
+  var password = '';
+
+  // Generate the password
+  for (var i = 0; i < passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * passcont.length);
+    password = password + passcont[randomIndex];
+  }
+  //password return//
+  return password;
 
 }
 
