@@ -43,7 +43,7 @@ THEN the password is either displayed in an alert or written to the page ✅
 
 ## Installation
 follow this link to checkout the finished page
-[https://taylorgehrts.github.io/Taylors-Portfolio-App/](https://taylorgehrts.github.io/Taylors-Portfolio-App/)
+[https://taylorgehrts.github.io/Taylor_password_gen/](https://taylorgehrts.github.io/Taylor_password_gen/)
 
 ## Usage
 
